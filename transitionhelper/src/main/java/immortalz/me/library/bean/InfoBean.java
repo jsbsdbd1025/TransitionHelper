@@ -15,8 +15,8 @@ public class InfoBean<ModelType> {
     public Bitmap bitmap;
     private ModelType load;
 
-    public int translationY;
-    public int translationX;
+    public float translationY;
+    public float translationX;
     //origin view
     public Rect originRect = new Rect();
     public int originWidth;

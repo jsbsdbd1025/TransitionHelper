@@ -26,8 +26,10 @@ public abstract class InflateShowMethod extends ShowMethod {
     @Override
     public void translate(InfoBean bean, ExposeView parent, View child) {
         set.playTogether(
-                ObjectAnimator.ofFloat(child, "translationX", 0, -bean.translationX),
-                ObjectAnimator.ofFloat(child, "translationY", 0, -bean.translationY),
+//                ObjectAnimator.ofFloat(child, "translationX", 0, -bean.translationX),
+//                ObjectAnimator.ofFloat(child, "translationY", 0, -bean.translationY),
+                ObjectAnimator.ofFloat(child, "translationX", /*child.getX(),*/ bean.translationX),
+                ObjectAnimator.ofFloat(child, "translationY", /*child.getY(),*/ bean.translationY),
                 ObjectAnimator.ofFloat(child, "scaleX", 1,1/bean.scale),
                 ObjectAnimator.ofFloat(child, "scaleY", 1,1/bean.scale)
         );

@@ -271,10 +271,17 @@ public class TransitionsHeleper {
 
                 RelativeLayout.LayoutParams ivTempParams = new RelativeLayout.LayoutParams((int) (bean.targetWidth * bean.scale),
                         (int) (bean.targetHeight * bean.scale));
-                ivTempParams.setMargins((int) (bean.originRect.left + (bean.originWidth / 2 - bean.targetWidth * bean.scale / 2))
-                        , bean.originRect.top - (parent.getTop() + bean.statusBarHeight), 0, 0);
-                bean.translationY = bean.originRect.top + (int) (bean.targetHeight * bean.scale) / 2 - bean.targetRect.top - bean.targetHeight / 2;
-                bean.translationX = bean.originRect.left + bean.originWidth / 2 - bean.targetRect.left - bean.targetWidth / 2;
+//                ivTempParams.setMargins((int) (bean.originRect.left + (bean.originWidth / 2 - bean.targetWidth * bean.scale / 2))
+//                        , bean.originRect.top - (parent.getTop() + bean.statusBarHeight), 0, 0);
+
+                ivTemp.setX(bean.originRect.left + (bean.originWidth / 2 - bean.targetWidth * bean.scale / 2));
+                ivTemp.setY(bean.originRect.top - (parent.getTop() + bean.statusBarHeight));
+
+//                bean.translationY = bean.originRect.top + (int) (bean.targetHeight * bean.scale) / 2 - bean.targetRect.top - bean.targetHeight / 2;
+//                bean.translationX = bean.originRect.left + bean.originWidth / 2 - bean.targetRect.left - bean.targetWidth / 2;
+
+                bean.translationX = bean.targetRect.left - (bean.scale - 1) * bean.targetWidth / 2;
+                bean.translationY = bean.targetRect.top - (bean.scale - 1) * bean.targetHeight / 2 - (parent.getTop() + bean.statusBarHeight);
 
                 exposeView.addView(ivTemp, ivTempParams);
                 showMethod.reviseInfo(bean);
